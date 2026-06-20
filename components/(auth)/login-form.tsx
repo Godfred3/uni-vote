@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Eye, EyeOff, Mail, Star } from "lucide-react";
+import { Eye, EyeOff, Mail, Star, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
@@ -12,109 +12,104 @@ export function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="flex-1 flex flex-col max-w-[420px] w-full mx-auto justify-center">
-      
-      {/* Logo Area */}
+    <div className="flex-1 flex flex-col max-w-[380px] w-full mx-auto justify-center">
+
+      {/* Logo */}
       <div className="flex items-center gap-3 mb-8">
-        <div className="h-10 w-10 rounded-[10px] bg-zinc-900 text-white flex items-center justify-center shadow-md">
-          <Star className="h-5 w-5 fill-white" />
+        <div className="h-10 w-10 rounded-[12px] bg-white text-black flex items-center justify-center shadow-md">
+          <Star className="h-5 w-5 fill-black" />
         </div>
-        <span className="text-xl font-semibold text-zinc-900 tracking-tight">UniVote</span>
+        <span className="text-xl font-semibold text-white tracking-tight">UniVote</span>
       </div>
 
       <div className="space-y-1.5 mb-8">
-        <h2 className="text-[26px] font-bold text-zinc-900 tracking-tight">
-          Welcome Back Student!
+        <h2 className="text-[26px] font-bold text-white tracking-tight">
+          Welcome Back!
         </h2>
-        <p className="text-sm text-zinc-500">
-          We Are Happy To See You Again
+        <p className="text-sm text-white/50">
+          Sign in to cast your vote
         </p>
       </div>
 
       <form className="space-y-5">
         {/* Email */}
-        <div className="space-y-2">
-          <div className="relative">
-            <Input
-              placeholder="Enter your student e-mail"
-              className="pl-5 pr-12 h-14 rounded-full border-zinc-200 bg-transparent text-sm focus-visible:ring-[#3A76F0]/20 focus-visible:border-[#3A76F0]"
-            />
-            <Mail className="absolute right-5 top-1/2 -translate-y-1/2 h-5 w-5 text-zinc-400" />
-          </div>
+        <div className="relative">
+          <Input
+            placeholder="Student e-mail"
+            className="pl-5 pr-12 h-14 rounded-full border-white/10 bg-white/5 text-white placeholder:text-white/30 text-sm focus-visible:ring-white/20 focus-visible:border-white/30"
+          />
+          <Mail className="absolute right-5 top-1/2 -translate-y-1/2 h-5 w-5 text-white/30" />
         </div>
 
         {/* Password */}
-        <div className="space-y-2">
-          <div className="relative">
-            <Input
-              type={showPassword ? "text" : "password"}
-              placeholder="Enter your password"
-              className="pl-5 pr-12 h-14 rounded-full border-zinc-200 bg-transparent text-sm focus-visible:ring-[#3A76F0]/20 focus-visible:border-[#3A76F0]"
-            />
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-5 top-1/2 -translate-y-1/2"
-            >
-              {showPassword ? (
-                <EyeOff className="h-5 w-5 text-zinc-400" />
-              ) : (
-                <Eye className="h-5 w-5 text-zinc-400" />
-              )}
-            </button>
-          </div>
+        <div className="relative">
+          <Input
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+            className="pl-5 pr-12 h-14 rounded-full border-white/10 bg-white/5 text-white placeholder:text-white/30 text-sm focus-visible:ring-white/20 focus-visible:border-white/30"
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute right-5 top-1/2 -translate-y-1/2"
+          >
+            {showPassword ? (
+              <EyeOff className="h-5 w-5 text-white/30" />
+            ) : (
+              <Eye className="h-5 w-5 text-white/30" />
+            )}
+          </button>
         </div>
 
         {/* Options */}
         <div className="flex items-center justify-between px-2 pt-1 pb-1">
           <div className="flex items-center gap-2.5">
-            <Checkbox id="remember" className="rounded-full h-4 w-4 border-[#3A76F0] data-[state=checked]:bg-[#3A76F0] data-[state=checked]:border-[#3A76F0]" />
-            <Label htmlFor="remember" className="text-sm text-zinc-500 font-normal cursor-pointer">
+            <Checkbox id="remember" className="rounded-full h-4 w-4 border-white/20 data-[state=checked]:bg-white data-[state=checked]:border-white data-[state=checked]:text-black" />
+            <Label htmlFor="remember" className="text-sm text-white/40 font-normal cursor-pointer">
               Remember me
             </Label>
           </div>
           <Link
             href="/forgot-password"
-            className="text-sm text-[#3A76F0] font-medium hover:underline"
+            className="text-sm text-white/60 font-medium hover:text-white transition-colors"
           >
             Forgot Password?
           </Link>
         </div>
 
-        {/* Submit Button */}
-        <div className="pt-2">
-          <Button
-            className="w-full bg-[#3A76F0] hover:bg-[#2e62ce] text-white rounded-full h-14 text-[15px] font-medium shadow-lg shadow-[#3A76F0]/25 transition-all"
-          >
-            Login
-          </Button>
-        </div>
+        {/* Submit */}
+        <Button
+          type="submit"
+          className="w-full bg-white text-black hover:bg-zinc-200 rounded-full h-14 text-[15px] font-bold shadow-lg shadow-white/10 transition-all"
+        >
+          Login
+          <ArrowRight className="ml-2 h-4 w-4" />
+        </Button>
 
         {/* Divider */}
         <div className="relative py-4">
           <div className="absolute inset-0 flex items-center">
-            <span className="w-full border-t border-zinc-200" />
+            <span className="w-full border-t border-white/10" />
           </div>
           <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-[#F7F7F9] px-4 text-zinc-400 font-medium tracking-wider">OR</span>
+            <span className="bg-transparent px-4 text-white/30 font-medium tracking-wider">OR</span>
           </div>
         </div>
 
-        {/* Social Logins */}
-        <div className="space-y-3.5">
+        {/* Social */}
+        <div className="space-y-3">
           <Button
             type="button"
-            className="w-full bg-[#1C1C1E] hover:bg-black text-white rounded-full h-14 text-[15px] font-medium transition-all"
+            className="w-full bg-white/10 hover:bg-white/15 text-white border border-white/10 rounded-full h-14 text-[15px] font-medium transition-all"
           >
             <svg viewBox="0 0 24 24" className="h-[22px] w-[22px] mr-2.5 fill-current">
               <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.56-1.702z" />
             </svg>
-            Log in with Apple
+            Continue with Apple
           </Button>
           <Button
             type="button"
-            variant="outline"
-            className="w-full bg-white hover:bg-zinc-50 text-zinc-800 border-zinc-200 rounded-full h-14 text-[15px] font-medium transition-all shadow-sm"
+            className="w-full bg-white/10 hover:bg-white/15 text-white border border-white/10 rounded-full h-14 text-[15px] font-medium transition-all"
           >
             <svg viewBox="0 0 24 24" className="h-5 w-5 mr-3">
               <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
@@ -122,10 +117,17 @@ export function LoginForm() {
               <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
               <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
             </svg>
-            Log in with Google
+            Continue with Google
           </Button>
         </div>
 
+        {/* Footer */}
+        <p className="text-center text-sm text-white/30 pt-2">
+          Don&apos;t have an account?{" "}
+          <Link href="/register" className="text-white/60 font-medium hover:text-white transition-colors">
+            Contact Admin
+          </Link>
+        </p>
       </form>
     </div>
   );

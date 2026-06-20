@@ -1,6 +1,7 @@
 import Navbar from "@/components/navbar";
 import { Button } from "@/components/ui/button";
 import { Clock, Calendar, ChevronRight, Star } from "lucide-react";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -100,8 +101,8 @@ export default function HomePage() {
                     <p className="text-white/60 text-[13px] leading-relaxed">
                       Vote for student leaders representing the university community across all faculties.
                     </p>
-                    <Button className="w-full h-14 rounded-full bg-white text-black hover:bg-zinc-200 text-[15px] font-bold shadow-lg shadow-white/10 transition-all">
-                      Vote Now
+                    <Button asChild className="w-full h-14 rounded-full bg-white text-black hover:bg-zinc-200 text-[15px] font-bold shadow-lg shadow-white/10 transition-all">
+                      <Link href="/electionID">Vote Now</Link>
                     </Button>
                   </div>
                 </div>
