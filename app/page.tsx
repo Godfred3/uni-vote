@@ -4,7 +4,7 @@ import { Clock, Calendar, ChevronRight, Star } from "lucide-react";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen relative flex flex-col items-center p-4 sm:p-6 lg:p-8 bg-zinc-950 font-sans">
+    <div className="h-screen relative flex flex-col items-center p-4 sm:p-6 lg:p-8 bg-zinc-950 overflow-hidden">
       
       {/* Background Image & Overlay */}
       <div 
@@ -18,16 +18,16 @@ export default function HomePage() {
         
         <Navbar />
 
-        <div className="flex-1 flex flex-col lg:flex-row p-6 md:p-12 lg:p-16 gap-12 lg:gap-8 items-center lg:items-start justify-between overflow-y-auto">
+        <div className="flex-1 min-h-0 flex flex-col lg:flex-row p-6 md:p-12 lg:p-16 gap-12 lg:gap-8 items-center lg:items-start justify-between overflow-y-auto">
           
           {/* Left Column: Typography & Upcoming */}
-          <div className="flex-1 space-y-10 max-w-2xl text-white lg:pt-12">
+          <div className="flex-1 space-y-10 max-w-2xl text-foreground lg:pt-12">
             
             <div className="space-y-6">
-              <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight text-white drop-shadow-md">
+              <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight text-foreground drop-shadow-md">
                 Welcome back, <br/> John 👋
               </h1>
-              <p className="text-lg md:text-xl text-white/80 max-w-md leading-relaxed font-light">
+              <p className="text-lg md:text-xl text-muted-foreground max-w-md leading-relaxed font-light">
                 Select an active election and cast your vote securely to shape the future of our university.
               </p>
             </div>
@@ -35,35 +35,35 @@ export default function HomePage() {
             <div className="flex items-center gap-4">
                <div className="flex items-center gap-1.5 text-yellow-400">
                   <Star className="fill-yellow-400 w-5 h-5" />
-                  <span className="font-semibold text-white text-lg">4.9</span>
+                  <span className="font-semibold text-foreground text-lg">4.9</span>
                </div>
-               <span className="text-white/60 text-sm font-medium">from 12,000+ votes cast</span>
+               <span className="text-muted-foreground text-sm font-medium">from 12,000+ votes cast</span>
             </div>
             
             {/* Upcoming Elections List */}
             <div className="pt-8 space-y-5 max-w-md">
-               <h3 className="text-white/90 font-semibold uppercase tracking-widest text-xs">Upcoming Elections</h3>
+               <h3 className="text-muted-foreground font-semibold uppercase tracking-widest text-xs">Upcoming Elections</h3>
                <div className="group flex items-center justify-between bg-black/20 hover:bg-black/40 border border-white/10 rounded-2xl p-4 cursor-pointer transition-all backdrop-blur-md">
                  <div className="flex items-center gap-4">
-                   <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center">
-                     <Calendar className="w-5 h-5 text-white/90" />
+                   <div className="h-12 w-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center">
+                     <Calendar className="w-5 h-5" />
                    </div>
                    <div>
-                     <p className="font-medium text-white text-[15px]">Hall Representative</p>
-                     <p className="text-sm text-white/50">Starts tomorrow</p>
+                     <p className="font-medium text-foreground text-[15px]">Hall Representative</p>
+                     <p className="text-sm text-muted-foreground">Starts tomorrow</p>
                    </div>
                  </div>
-                 <ChevronRight className="w-5 h-5 text-white/30 group-hover:text-white transition-colors" />
+                 <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
                </div>
             </div>
             
           </div>
 
           {/* Right Column: Active Elections (Matches Dribbble booking card) */}
-          <div className="w-full lg:w-[420px] shrink-0 flex flex-col gap-6 lg:pb-12">
+          <div className="w-full lg:w-[420px] shrink-0 flex flex-col gap-6 pb-6">
             
             {[1, 2].map((e) => (
-              <div key={e} className="rounded-[32px] bg-[#0A0E17]/70 backdrop-blur-2xl border border-white/10 p-7 shadow-2xl relative overflow-hidden group hover:bg-[#0A0E17]/90 transition-colors">
+              <div key={e} className="rounded-[32px] bg-[#0A0E17]/70 backdrop-blur-2xl border border-white/10 px-7 pt-7 pb-10 shadow-2xl relative group hover:bg-[#0A0E17]/90 transition-colors">
                 
                 {/* Decorative Status Dot */}
                 <div className="absolute top-7 right-7 h-10 w-10 rounded-full bg-white/5 flex items-center justify-center">
@@ -82,13 +82,13 @@ export default function HomePage() {
 
                   <div className="grid grid-cols-2 gap-3">
                     <div className="bg-white/5 rounded-2xl p-4 border border-white/5">
-                      <p className="text-white/40 text-[10px] font-semibold uppercase tracking-wider mb-1.5">Status</p>
+                      <p className="text-white/60 text-[10px] font-semibold uppercase tracking-wider mb-1.5">Status</p>
                       <p className="text-white font-medium flex items-center gap-2 text-sm">
                         Active
                       </p>
                     </div>
                     <div className="bg-white/5 rounded-2xl p-4 border border-white/5">
-                      <p className="text-white/40 text-[10px] font-semibold uppercase tracking-wider mb-1.5">Remaining</p>
+                      <p className="text-white/60 text-[10px] font-semibold uppercase tracking-wider mb-1.5">Remaining</p>
                       <p className="text-white font-medium flex items-center gap-2 text-sm">
                         <Clock className="w-3.5 h-3.5 text-blue-400" />
                         04h 25m

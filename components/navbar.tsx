@@ -41,7 +41,7 @@ export default function Navbar() {
               </Avatar>
             </DropdownMenuTrigger>
 
-            <DropdownMenuContent className="w-64 mt-2" align="end">
+            <DropdownMenuContent className="w-64 mt-2 bg-background/80 backdrop-blur-xl border-white/10" align="end">
               <DropdownMenuLabel className="font-normal py-2">
                 <div className="flex items-center gap-3">
                   <Avatar className="h-10 w-10">
